@@ -9,12 +9,11 @@ Este repositório contém o trabalho final da disciplina de Análise e Projeto d
 
 ## Funcionalidades
 - [x] login
-- [x] pagina principal
 - [x] pagina de anotar pedido
 - [x] pagina de visualizar resumo do pedido, valor total e finalizar pedido.
 
 ## Casos de Uso
-- [Caso de Uso: Logar no Sistema](trabalho_final/casos_de_uso/logar_sistema.md)
+- [Caso de Uso: Logar no Sistema](trabalho_final/casos_de_uso/loga_sistema.md)
 - [Caso de Uso: Anotar Pedido](trabalho_final/casos_de_uso/anota_pedido.md)
 
 ## Diagrama de Sequência
@@ -31,4 +30,4 @@ Este repositório contém o trabalho final da disciplina de Análise e Projeto d
 4. Instale o dotenv com o comando `npm install dotenv` para importar as variáveis de ambiente no arquivo .env
 5. Instale as dependencias do express, pg e cors com o comando `npm install express pg cors`
 6. Rode o projeto com o comando `npm start`
-7. Acesse o projeto em `http://localhost:3000`
+7. Acesse o projeto em `http://localhost:3000` ou instale a extensão live server no vscode e acesse o projeto em `http://localhost:5500`
