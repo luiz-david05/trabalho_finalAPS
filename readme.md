@@ -1,11 +1,11 @@
 # Trabalho final da disciplina de Analise e Projeto de Sistemas
 
 ## Integrantes
-- [Nome do Integrante 1](Luiz David Silva Gomes)
-- [Nome do Integrante 2](Tchola)
+- [Luiz David Silva Gomes] 
+- [ADM MACACO]
 
 ## Descrição
-Este repositório contém o trabalho final da disciplina de Análise e Projeto de Sistemas, ministrada pela professora [Nome da Professora](Aline). O trabalho consiste em desenvolver um sistema de controle de uma pizzaria delivery, com funcionalidades para cadastrar clientes, anotar pedidos, calcular o valor total dos pedidos, etc. O sistema foi desenvolvido em javascript, utilizando Node.js no backend e Html e Css no frontend.
+Este repositório contém o trabalho final da disciplina de Análise e Projeto de Sistemas, ministrada pela professora Aline. O trabalho consiste em desenvolver um sistema de controle de uma pizzaria delivery, com funcionalidades para cadastrar clientes, anotar pedidos, calcular o valor total dos pedidos, etc. O sistema foi desenvolvido em javascript, utilizando Node.js no backend e Html e Css no frontend.
 
 ## Funcionalidades
 - [x] login
@@ -14,15 +14,15 @@ Este repositório contém o trabalho final da disciplina de Análise e Projeto d
 - [x] pagina de visualizar resumo do pedido, valor total e finalizar pedido.
 
 ## Casos de Uso
-- [Caso de Uso: Logar no Sistema](casos_de_uso/loga_sistema.md)
-- [Caso de Uso: Anotar Pedido](casos_de_uso/anota_pedido.md)
+- [Caso de Uso: Logar no Sistema](trabalho_final/casos_de_uso/logar_sistema.md)
+- [Caso de Uso: Anotar Pedido](trabalho_final/casos_de_uso/anota_pedido.md)
 
 ## Diagrama de Sequência
-![Diagrama de Sequência: Logar no Sistema](diagrama_sequencia/loga_sistema.puml)
-![Diagrama de Sequência: Anotar Pedido](diagrama_sequencia/anota_pedido.puml)
+![Diagrama de Sequência: Logar no Sistema](trabalho_final/diagrama_sequencia/logar_sistema.png)
+![Diagrama de Sequência: Anotar Pedido](trabalho_final/diagrama_sequencia/anota_pedido.png)
 
 ## Diagrama de Classes
-![Diagrama de Classes](diagrama_classes/pizzaria.puml)
+![Diagrama de Classes](trabalho_final/diagrama_classes/pizzaria.puml)
 
 ## Como rodar o projeto
 1. Clone o repositório
