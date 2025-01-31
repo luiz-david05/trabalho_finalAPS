@@ -1,0 +1,4 @@
+- Criar pagina de login
+- Criar pagina principal
+- Criar pagina de anotar pedido
+- Criar pagina de visualizar resumo do pedido, valor total e finalizar pedido.

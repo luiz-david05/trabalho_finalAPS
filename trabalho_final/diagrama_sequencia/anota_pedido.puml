@@ -1,0 +1,27 @@
+@startuml Anotar Pedido
+title Anotar Pedido
+actor Atendente
+entity Sistema
+database BancoDeDados
+
+Atendente -> Sistema: Seleciona a opção de anotar pedido
+Atendente -> Sistema: Insere os dados do cliente
+Sistema -> BancoDeDados: Verifica se o cliente já existe
+BancoDeDados -> Sistema: Retorna dados do cliente (se existir)
+Sistema -> BancoDeDados: Cadastra o cliente (se novo)
+Sistema -> Sistema: Armazena dados do cliente
+Atendente -> Sistema: Insere os itens do pedido (sabor, tamanho, quantidade)
+Sistema -> BancoDeDados: Cadastra o pedido no banco de dados
+Sistema -> Sistema: Armazena dados do pedido
+Sistema -> Atendente: Exibe o resumo do pedido
+
+alt Fluxo Alternativo
+    Atendente -> Sistema: Cancela o pedido
+end
+
+alt Pontos de Extensão
+    Atendente -> Sistema: Anota observações do cliente
+    Atendente -> Sistema: Anota a forma de pagamento
+end
+
+@enduml
