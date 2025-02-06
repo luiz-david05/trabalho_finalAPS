@@ -9,8 +9,8 @@ Este repositório contém o trabalho final da disciplina de Análise e Projeto d
 
 ## Funcionalidades
 - [x] login
-- [x] pagina de anotar pedido
-- [x] pagina de visualizar resumo do pedido, valor total e finalizar pedido.
+- [x] pagina de cadastro de cliente
+- [x] pagina de cadastrar pedido e resumo do pedido.
 
 ## Casos de Uso
 - [Caso de Uso: Logar no Sistema](trabalho_final/casos_de_uso/loga_sistema.md)
