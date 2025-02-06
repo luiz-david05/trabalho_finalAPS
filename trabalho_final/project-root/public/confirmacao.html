@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pedido Confirmado</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px;
+            background-color: #ecf0f1;
+        }
+        h1 {
+            color: #2c3e50;
+        }
+        p {
+            font-size: 1.2rem;
+            margin-top: 20px;
+        }
+        .voltar {
+            margin-top: 30px;
+            padding: 10px 20px;
+            font-size: 1rem;
+            color: white;
+            background-color: #3498db;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        .voltar:hover {
+            background-color: #2980b9;
+        }
+    </style>
+</head>
+<body>
+    <h1>Pedido Confirmado!</h1>
+    <p id="mensagem"></p>
+    <a href="cadastrar_pedido.html" class="voltar">Fazer Novo Pedido</a>
+
+    <script>
+        // Função para obter parâmetros da URL
+        function obterParametro(nome) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(nome);
+        }
+        
+        document.getElementById("mensagem").innerText = `Seu pedido chegará em aproximadamente 72hrs.`;
+    </script>
+</body>
+</html>

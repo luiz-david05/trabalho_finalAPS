@@ -4,27 +4,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro de Pizza</title>
+    <link rel="stylesheet" href="style_cadastrar_pedido.css">
+    <script src="script.js" defer></script>
 </head>
 <body>
-    <h1>Cadastro de Pizza</h1>
+    <header>
+        <h1>Pizza</h1>
+    </header>
 
-    <form action="/cadastrar_pizza" method="POST"></form>
+    <form id="formPedido" onsubmit="mostrarResumo(event)">
         <label for="sabor">Sabor da Pizza:</label>
         <select id="sabor" name="sabor" required>
-            <option value="mussarela()">Mussarela</option>
-            <option value="calabresa()">Calabresa</option>
-            <option value="portuguesa()">Portuguesa</option>
+            <option value="mussarela">Mussarela</option>
+            <option value="calabresa">Calabresa</option>
+            <option value="portuguesa">Portuguesa</option>
         </select><br><br>
 
         <label for="tamanho">Tamanho da Pizza:</label>
         <select id="tamanho" name="tamanho" required>
-            <option value="pequena()">Pequena</option>
-            <option value="media()">Média</option>
-            <option value="grande()">Grande</option>
+            <option value="pequena">Pequena</option>
+            <option value="media">Média</option>
+            <option value="grande">Grande</option>
         </select><br><br>
 
-        <label for="preco">Preço da Pizza:</label>
+        <label for="quantidade">Quantidade de Pizzas:</label>
+        <input type="number" id="quantidade" name="quantidade" required><br><br>
+        
         <button type="submit">Cadastrar</button>
     </form>
+
+    <div id="resumo"></div>
 </body>
 </html>

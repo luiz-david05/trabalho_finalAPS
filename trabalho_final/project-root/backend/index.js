@@ -45,15 +45,15 @@ app.post("/login", async (req, res) => {
       [username]
     );
 
+    if (result.rows.length === 0) {
+      console.log("Usuário não encontrado!");
+      return res.redirect("/login");
+    }
+
     const user = result.rows[0];
 
     if (user.senha !== password) {
       console.log("Senha incorreta!");
-      return res.redirect("/login");
-    }
-
-    if (!user) {
-      console.log("Usuário não encontrado!");
       return res.redirect("/login");
     }
 
@@ -90,13 +90,6 @@ app.post("/cadastrar_cliente", async (req, res) => {
       [nome, bairro, telefone]
     );
 
-    // Busca o ID do cliente recém-cadastrado
-    const newClient = await pool.query(
-      "SELECT id_cliente FROM cliente WHERE telefone = $1",
-      [telefone]
-    );
-    req.session.cliente_id = newClient.rows[0].id_cliente;
-
     console.log("Cliente cadastrado com sucesso!");
     return res.redirect("/cadastrar_pedido");
   } catch (error) {
@@ -109,23 +102,6 @@ app.get("/cadastrar_pedido", (req, res) => {
   res.sendFile(path.join(__dirname, "../public/cadastrar_pedido.html"));
 });
 
-app.post("/cadastrar_pedido", async (req, res) => {
-  const { id_cliente, id_produto, quantidade } = req.body;
 
-  id_atendente = req.session.atendente_id;
-
-  try {
-    await pool.query(
-      "INSERT INTO pedido (id_cliente, id_produto, quantidade) VALUES ($1, $2, $3)",
-      [id_cliente, id_produto, quantidade]
-    );
-
-    console.log("Pedido cadastrado com sucesso!");
-    return res.redirect("/cadastrar_pedido");
-  } catch (error) {
-    console.error("Erro ao cadastrar pedido:", error);
-    return res.status(500).send("Erro no servidor.");
-  }
-});
 
 app.listen(3000, () => console.log("Servidor rodando na porta 3000"));
