@@ -1,54 +1,51 @@
-CREATE TABLE usuario (
-	id_usuario SERIAL PRIMARY KEY,
-    nome_usuario VARCHAR(50) UNIQUE NOT NULL,
-    senha VARCHAR(100) NOT NULL
-);
-
 CREATE TABLE atendente (
 	id_atendente SERIAL PRIMARY KEY,
-	nome_atendente VARCHAR(100) NOT NULL
+    nome_atendente VARCHAR(50) UNIQUE NOT NULL,
+    senha VARCHAR(100) NOT NULL,
+    data_criacao TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    data_atualizacao TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
 CREATE TABLE cliente (
     id_cliente SERIAL PRIMARY KEY,
     nome VARCHAR(100) NOT NULL,
     bairro VARCHAR(50) NOT NULL,
-    telefone VARCHAR(12) NOT NULL
+    telefone VARCHAR(15) NOT NULL,
+    data_criacao TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
-CREATE TABLE cardapio (
-	id_cardapio SERIAL PRIMARY KEY,
-	nome VARCHAR(100) NOT NULL
+CREATE TABLE pizza (
+	id_pizza SERIAL PRIMARY KEY,
+	nome_pizza VARCHAR(100) NOT NULL,
+	valor DECIMAL(10,2) NOT NULL,
+    categoria VARCHAR(50),
+    data_criacao TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
-CREATE TABLE item_cardapio (
-	id_item_cardapio SERIAL PRIMARY KEY,
-	cardapio_id INT NOT NULL,
-	nome VARCHAR(100) NOT NULL,
-	descricao VARCHAR(100) NOT NULL,
-	FOREIGN KEY (cardapio_id) REFERENCES cardapio(id_cardapio)
-);
-
-CREATE TABLE item_pedido (
-	id_item_pedido SERIAL PRIMARY KEY,
-	item_cardapio_id INT NOT NULL,
-	qtd INT NOT NULL,
-	descricao VARCHAR(100) NOT NULL,
-	FOREIGN KEY (item_cardapio_id) REFERENCES item_cardapio(id_item_cardapio)
+-- Tabela intermediária para relacionar pedidos e pizzas
+CREATE TABLE pedido_pizza (
+    id_pedido INT NOT NULL,
+    id_pizza INT NOT NULL,
+    quantidade INT NOT NULL,  -- Quantidade de pizzas do mesmo tipo no pedido
+    PRIMARY KEY (id_pedido, id_pizza),
+    FOREIGN KEY (id_pedido) REFERENCES pedido(id_pedido) ON DELETE CASCADE,
+    FOREIGN KEY (id_pizza) REFERENCES pizza(id_pizza) ON DELETE CASCADE
 );
 
 CREATE TABLE pedido (
     id_pedido SERIAL PRIMARY KEY,
-    cliente_id INT NOT NULL,
 	atendente_id INT NOT NULL,
-	item_pedido_id INT NOT NULL,
-    status VARCHAR(50) DEFAULT 'Em andamento',
-    FOREIGN KEY (cliente_id) REFERENCES cliente(id_cliente),
+	cliente_id INT NOT NULL,
+	data_pedido DATE NOT NULL,
+	quantidade INT NOT NULL,
+	valor_total DECIMAL(10,2) NOT NULL,
+    status VARCHAR(20) DEFAULT 'Em andamento',
 	FOREIGN KEY (atendente_id) REFERENCES atendente(id_atendente),
-	FOREIGN KEY (item_pedido_id) REFERENCES item_pedido(id_item_pedido)
+	FOREIGN KEY (cliente_id) REFERENCES cliente(id_cliente)
 );
 
-INSERT INTO usuario (nome_usuario, senha) 
-VALUES ('adm', 'adm');
+INSERT INTO atendente (nome_atendente, senha) VALUES ('admin', 'admin');
 
-SELECT * FROM usuario WHERE nome_usuario = 'adm';
+INSERT INTO pizza (nome_pizza, valor, categoria) VALUES ('Calabresa', 30.00, 'Salgada'), ('Mussarela', 25.00, 'Salgada'), ('Brigadeiro', 20.00, 'Doce');
+
+INSERT INTO cliente (nome, bairro, telefone) VALUES ('João', 'Centro', '9999-9999');

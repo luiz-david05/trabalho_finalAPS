@@ -1,0 +1,123 @@
+/* Reseta o estilo padrão do navegador */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Configura o layout da página */
+body {
+    font-family: 'Arial', sans-serif;
+    background: #ecf0f1;  /* Cor de fundo mais clara e suave */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: #333;  /* Cor padrão de texto */
+}
+
+/* Cabeçalho */
+header {  /* Cor de fundo azul mais escuro */
+    color: white;
+    padding: 15px 0;
+    text-align: center;
+    width: 100%;
+    position: fixed;
+    top: 200px;
+    left: 0;
+    z-index: 10;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+/* Formulário de login */
+form {
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px; /* Limita a largura máxima do formulário */
+    display: flex;
+    flex-direction: column;
+    margin-top: 100px; /* Espaço para o cabeçalho fixo */
+}
+
+/* Estilo do título */
+h1 {
+    text-align: center;
+    font-size: 2.2rem;
+    color: #2c3e50;
+    margin-bottom: 25px;
+    font-weight: bold;
+}
+
+/* Estilo dos labels */
+label {
+    font-size: 1rem;
+    margin-bottom: 5px;
+    color: #2c3e50;
+    font-weight: 500;
+}
+
+/* Estilo dos inputs */
+input {
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    color : #333;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease-in-out;
+    background-color: #fafafa;
+}
+
+input:focus {
+    border-color: #3498db;  /* Borda azul ao focar */
+    outline: none; /* Remove o contorno padrão */
+    background-color: #f0f8ff;  /* Cor de fundo suave quando focado */
+}
+
+/* Estilo do botão */
+button {
+    padding: 14px;
+    background-color: #3498db;  /* Cor de fundo azul vibrante */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+    font-weight: 600;
+}
+
+button:hover {
+    background-color: #2980b9;  /* Azul mais escuro ao passar o mouse */
+}
+
+/* Mensagens de erro */
+.error-message {
+    color: #e74c3c; /* Cor de erro (vermelho) */
+    margin-bottom: 15px;
+    font-size: 0.9rem;
+    text-align: center;
+}
+
+/* Responsividade para telas menores */
+@media (max-width: 600px) {
+    body {
+        padding: 10px;
+    }
+
+    form {
+        padding: 25px;
+    }
+
+    button {
+        font-size: 1rem;
+    }
+
+    h1 {
+        font-size: 1.8rem;
+    }
+}

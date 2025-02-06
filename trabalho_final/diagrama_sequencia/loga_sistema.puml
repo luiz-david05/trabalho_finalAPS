@@ -7,7 +7,7 @@ database BancoDeDados
 Atendente -> Sistema: Insere login e senha
 Sistema -> BancoDeDados: Verifica credenciais
 BancoDeDados -> Sistema: Retorna credenciais válidas
-Sistema -> Atendente: Exibe tela principal
+Sistema -> Atendente: Redireciona para a página de cadastro de clientes
 
 alt Fluxo Alternativo
     Sistema -> Atendente: Credenciais inválidas

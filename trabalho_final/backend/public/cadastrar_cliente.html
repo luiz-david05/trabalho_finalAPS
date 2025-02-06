@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style_login.css">
+    <title>Cadastro de Cliente</title>
+</head>
+<body>
+    <header>
+        <h1>Cadastro de Cliente</h1>
+    </header>
+    
+    <main>
+        <form action="http://localhost:3000/cadastrar_cliente" method="POST">
+            <div>
+                <label for="nome">Nome:</label>
+                <input type="text" id="nome" name="nome" required>
+            </div>
+
+            <div>
+                <label for="bairro">Bairro:</label>
+                <input type="text" id="bairro" name="bairro" required>
+            </div>
+
+            <div>
+                <label for="telefone">Telefone:</label>
+                <input type="tel" id="telefone" name="telefone" placeholder="XXXXXXXXXXX" required>
+            </div>
+
+            <div>
+                <button type="submit">Cadastrar</button>
+            </div>
+        </form>
+    </main>
+</body>
+</html>

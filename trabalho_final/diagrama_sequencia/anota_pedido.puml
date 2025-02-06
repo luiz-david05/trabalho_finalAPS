@@ -4,16 +4,14 @@ actor Atendente
 entity Sistema
 database BancoDeDados
 
-Atendente -> Sistema: Seleciona a opção de anotar pedido
 Atendente -> Sistema: Insere os dados do cliente
 Sistema -> BancoDeDados: Verifica se o cliente já existe
-BancoDeDados -> Sistema: Retorna dados do cliente (se existir)
+BancoDeDados -> Sistema: Se o cliente já existe, redireciona para a pagina de cadastro de pedidos
 Sistema -> BancoDeDados: Cadastra o cliente (se novo)
 Sistema -> Sistema: Armazena dados do cliente
 Atendente -> Sistema: Insere os itens do pedido (sabor, tamanho, quantidade)
-Sistema -> BancoDeDados: Cadastra o pedido no banco de dados
-Sistema -> Sistema: Armazena dados do pedido
-Sistema -> Atendente: Exibe o resumo do pedido
+Sistema -> BancoDeDados: Cadastra o pedido no banco de dados e direciona para a pagina de resumo do pedido
+
 
 alt Fluxo Alternativo
     Atendente -> Sistema: Cancela o pedido

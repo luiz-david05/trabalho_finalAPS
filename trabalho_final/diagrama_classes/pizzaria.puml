@@ -7,16 +7,11 @@ class Cliente {
     - telefone: String
     - bairro: String
     + cadastrarCliente()
-    + alterarCliente()
-    + excluirCliente()
 }
 
 class Atendente {
     - idAtendente: Int
     - nome: String
-    + cadastrarAtendente()
-    + alterarAtendente()
-    + excluirAtendente()
 }
 
 class Pedido {
@@ -25,7 +20,6 @@ class Pedido {
     - hora: Time
     - status : String
     + cadastrarPedido()
-    + alterarPedido()
     + excluirPedido()
 }
 
@@ -33,32 +27,12 @@ class ItemPedido {
     - idItemPedido: Int
     - quantidade: Int
     - desc : String
-    + cadastrarItemPedido()
-    + alterarItemPedido()
-    + excluirItemPedido()
-}
-
-class ItemCardapio {
-    - idItemCardapio: Int
-    - nome: String
-    - descricao: String
-    - preco: Double
-    + cadastrarItemCardapio()
-    + alterarItemCardapio()
-    + excluirItemCardapio()
-}
-
-class Cardapio {
-    - idCardapio: Int
-    - nome: String
-    + alterarCardapio()
-    + excluirCardapio()
+    - nome : String
+    - preco : Double
 }
 
 Cliente "1:1" -- "0..*" Pedido: "realiza"
 Pedido "0..*" -- "1:1" Atendente: "cadastra"
 Pedido "1:1" -- "1..*" ItemPedido: "contém"
-ItemPedido "1:1" -- "1..*" ItemCardapio: "é composto por"
-Cardapio "1:1" -- "1..*" ItemCardapio: "contém"
 
 @enduml
