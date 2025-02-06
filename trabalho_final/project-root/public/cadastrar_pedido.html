@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Pizza</title>
+</head>
+<body>
+    <h1>Cadastro de Pizza</h1>
+
+    <form action="/cadastrar_pizza" method="POST"></form>
+        <label for="sabor">Sabor da Pizza:</label>
+        <select id="sabor" name="sabor" required>
+            <option value="mussarela()">Mussarela</option>
+            <option value="calabresa()">Calabresa</option>
+            <option value="portuguesa()">Portuguesa</option>
+        </select><br><br>
+
+        <label for="tamanho">Tamanho da Pizza:</label>
+        <select id="tamanho" name="tamanho" required>
+            <option value="pequena()">Pequena</option>
+            <option value="media()">Média</option>
+            <option value="grande()">Grande</option>
+        </select><br><br>
+
+        <label for="preco">Preço da Pizza:</label>
+        <button type="submit">Cadastrar</button>
+    </form>
+</body>
+</html>

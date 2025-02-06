@@ -52,6 +52,11 @@ app.post("/login", async (req, res) => {
       return res.redirect("/login");
     }
 
+    if (!user) {
+      console.log("Usuário não encontrado!");
+      return res.redirect("/login");
+    }
+
     console.log("Usuário logado com sucesso!");
     return res.redirect("/cadastrar_cliente");
   } catch (error) {
@@ -100,9 +105,27 @@ app.post("/cadastrar_cliente", async (req, res) => {
   }
 });
 
-// Rota para cadastrar pedido
 app.get("/cadastrar_pedido", (req, res) => {
   res.sendFile(path.join(__dirname, "../public/cadastrar_pedido.html"));
+});
+
+app.post("/cadastrar_pedido", async (req, res) => {
+  const { id_cliente, id_produto, quantidade } = req.body;
+
+  id_atendente = req.session.atendente_id;
+
+  try {
+    await pool.query(
+      "INSERT INTO pedido (id_cliente, id_produto, quantidade) VALUES ($1, $2, $3)",
+      [id_cliente, id_produto, quantidade]
+    );
+
+    console.log("Pedido cadastrado com sucesso!");
+    return res.redirect("/cadastrar_pedido");
+  } catch (error) {
+    console.error("Erro ao cadastrar pedido:", error);
+    return res.status(500).send("Erro no servidor.");
+  }
 });
 
 app.listen(3000, () => console.log("Servidor rodando na porta 3000"));

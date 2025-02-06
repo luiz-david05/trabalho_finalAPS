@@ -73,7 +73,7 @@ input:focus {
 }
 
 button {
-    padding: 14px;
+    padding: 12px;
     background-color: #3498db;
     color: white;
     border: none;
@@ -82,10 +82,12 @@ button {
     cursor: pointer;
     transition: background-color 0.3s ease-in-out;
     font-weight: 600;
+    margin-top: 20px;
 }
 
 button:hover {
-    background-color: #2980b9;
+    color: #333;
+    background-color: #f0f8ff;
 }
 
 .error-message {

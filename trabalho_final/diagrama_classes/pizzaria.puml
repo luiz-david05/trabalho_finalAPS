@@ -6,12 +6,13 @@ class Cliente {
     - nome: String
     - telefone: String
     - bairro: String
-    + cadastrarCliente()
 }
 
 class Atendente {
     - idAtendente: Int
     - nome: String
+    + cadastrarCliente()
+    + cadastrarPedido()
 }
 
 class Pedido {
@@ -19,8 +20,6 @@ class Pedido {
     - data: Date
     - hora: Time
     - status : String
-    + cadastrarPedido()
-    + excluirPedido()
 }
 
 class ItemPedido {
