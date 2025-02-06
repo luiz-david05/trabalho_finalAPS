@@ -32,7 +32,6 @@ app.use(
 );
 
 // Rota de login
-
 app.get("/login", (req, res) => {
   res.sendFile(path.join(__dirname, "../public/login.html"));
 });
@@ -104,56 +103,6 @@ app.post("/cadastrar_cliente", async (req, res) => {
 // Rota para cadastrar pedido
 app.get("/cadastrar_pedido", (req, res) => {
   res.sendFile(path.join(__dirname, "../public/cadastrar_pedido.html"));
-});
-
-app.post("/cadastrar_pedido", async (req, res) => {
-  const id_cliente = req.session.cliente_id;
-  const id_atendente = req.session.user_id;
-
-  const { pizzas } = req.body; // Espera um array de pizzas, cada uma com id e quantidade
-
-  try {
-    // Inserir pedido na tabela pedido
-    const result = await pool.query(
-      "INSERT INTO pedido (id_cliente, id_atendente, data_pedido, valor_total) VALUES ($1, $2, CURRENT_DATE, $3) RETURNING id_pedido",
-      [id_cliente, id_atendente, 0] // A 'valor_total' será calculada posteriormente
-    );
-
-    const id_pedido = result.rows[0].id_pedido;
-    let valorTotal = 0;
-
-    // Inserir cada pizza no pedido_pizza
-    for (const pizza of pizzas) {
-      const { id_item, quantidade } = pizza;
-
-      // Buscar o preço da pizza
-      const pizzaResult = await pool.query(
-        "SELECT valor FROM pizza WHERE id_pizza = $1",
-        [id_item]
-      );
-
-      const pizzaValor = pizzaResult.rows[0].valor;
-      valorTotal += pizzaValor * quantidade; // Calculando o valor total do pedido
-
-      // Inserir a pizza no pedido_pizza
-      await pool.query(
-        "INSERT INTO pedido_pizza (id_pedido, id_pizza, quantidade) VALUES ($1, $2, $3)",
-        [id_pedido, id_item, quantidade]
-      );
-    }
-
-    // Atualizar o valor total do pedido
-    await pool.query(
-      "UPDATE pedido SET valor_total = $1 WHERE id_pedido = $2",
-      [valorTotal, id_pedido]
-    );
-
-    console.log("Pedido cadastrado com sucesso!");
-    // return res.redirect("/resumo_pedido");
-  } catch (error) {
-    console.error("Erro ao cadastrar pedido:", error);
-    return res.status(500).send("Erro no servidor.");
-  }
 });
 
 app.listen(3000, () => console.log("Servidor rodando na porta 3000"));
