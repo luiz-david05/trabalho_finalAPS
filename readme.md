@@ -2,7 +2,7 @@
 
 ## Integrantes
 - [Luiz David Silva Gomes] 
-- [ADM MACACO]
+- [Wanderson MAtheus de Sousa Barbosa]
 
 ## Descrição
 Este repositório contém o trabalho final da disciplina de Análise e Projeto de Sistemas, ministrada pela professora Aline. O trabalho consiste em desenvolver um sistema de controle de uma pizzaria delivery, com funcionalidades para cadastrar clientes, anotar pedidos, calcular o valor total dos pedidos, etc. O sistema foi desenvolvido em javascript, utilizando Node.js no backend e Html e Css no frontend.
